@@ -17,7 +17,7 @@
     }
   },
   "variables": {
-    "storageAccountName": "[concat(parameters('appName'), 'storage')]"
+    "storageAccountName": "[toLower(concat('st', uniqueString(resourceGroup().id)))]"
   },
   "resources": [
     {
@@ -55,10 +55,5 @@
       }
     }
   ],
-  "outputs": {
-    "storageAccountEndpoint": {
-      "type": "string",
-      "value": "[concat('https://', variables('storageAccountName'), '.blob.core.windows.net')]"
-    }
-  }
+  "outputs": {}
 }
